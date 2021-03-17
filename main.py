@@ -29,7 +29,7 @@ recData = {'domain': "google",
 def hello_world(): 
 	if request.method == "POST": 
     	recData = flask.request.json
-   	  city = recData['city']
+   	    city = recData['city']
     	email = recData['email']
    		name = recData['name']
    		mobile = recData['mobile']  
@@ -63,7 +63,7 @@ def hello_world():
          	  'gender': gender,
          	  'dob': dob,
          	  'nationality': nationality
-      }
+      	}
              
     	lpvstatus = 'True'
     	resp = requests.post('https://us-central1-folk-dev-com-db.cloudfunctions.net/createLinkedProfile',json=data)
