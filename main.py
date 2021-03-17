@@ -55,7 +55,7 @@ def hello_world():
     		elif domain == 'facebook' or domain == 'github' or domain == 'linkedin':
     		     type = "social"
         
-   		 data = {
+   		data = {
          	  'city': city,
          	  'email': email,
           	  'name': name,
@@ -63,7 +63,7 @@ def hello_world():
          	  'gender': gender,
          	  'dob': dob,
          	  'nationality': nationality
-      		 }
+      		}
              
     		lpvstatus = 'True'
     		resp = requests.post('https://us-central1-folk-dev-com-db.cloudfunctions.net/createLinkedProfile',json=data)
