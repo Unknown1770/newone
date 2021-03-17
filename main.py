@@ -25,8 +25,9 @@ recData = {'domain': "google",
            'nationality': "India"
            }
 
-@app.route('/')
-def hello_world(request):
+@app.route('/',  methods =["GET", "POST"])
+def hello_world():
+  if request.method == "POST":
     recData = flask.request.json
     city = recData['city']
     email = recData['email']
