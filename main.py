@@ -68,7 +68,8 @@ def hello_world():
     lpvstatus = 'True'
     resp = requests.post('https://us-central1-folk-dev-com-db.cloudfunctions.net/createLinkedProfile',json=data)
      
-    return jsonify(data)
+    #return jsonify(data)
+    return 'ok'
 
 
 if __name__ == '__main__':
