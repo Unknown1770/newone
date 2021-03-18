@@ -5,7 +5,7 @@ import requests
 from firebase_admin import credentials
 from firebase_admin import firestore
 import flask
-from flask import request, jsonify, Flask
+from flask import request, jsonify, Flask, render_template
 
 # initialize firebase application
 firebase_admin.initialize_app()
@@ -69,7 +69,8 @@ def hello_world():
     resp = requests.post('https://us-central1-folk-dev-com-db.cloudfunctions.net/createLinkedProfile',json=data)
      
     #return jsonify(data)
-    return 'ok'
+    return 'your name is: ' + name
+return render_template("index.html") 
 
 
 if __name__ == '__main__':
