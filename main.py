@@ -8,7 +8,14 @@ import flask
 from flask import request, jsonify, Flask, render_template
 
 # initialize firebase application
-firebase_admin.initialize_app()
+#firebase_admin.initialize_app()
+cred = credentials.Certificate('testing-bf5a4-firebase-adminsdk-k3wvf-9481825d20.json')
+
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://testing-bf5a4.firebaseio.com/'
+})
+
+db = firestore.client()
 
 # connect to db
 db = firestore.client()
@@ -28,14 +35,21 @@ recData = {'domain': "google",
 @app.route('/',  methods =["GET", "POST"])
 def hello_world():
   if request.method == "POST":
-    recData = flask.request.json
-    city = recData['city']
-    email = recData['email']
-    name = recData['name']
-    mobile = recData['mobile']  
-    gender = recData['gender']
-    dob = recData['dob']
-    nationality = recData['nationality']
+    #recData = flask.request.json
+    #city = recData['city']
+    #email = recData['email']
+    #name = recData['name']
+    #mobile = recData['mobile']  
+    #gender = recData['gender']
+    #dob = recData['dob']
+    #nationality = recData['nationality']
+    city = request.form.get("city") 
+    email = request.form.get("email") 
+    name = request.form.get("name") 
+    mobile = request.form.get("mobile")   
+    gender = request.form.get("gender") 
+    dob = request.form.get("dob") 
+    nationality = request.form.get("nationality") 
     
     docref = db.collection('Profile').document()
     data1 = {
