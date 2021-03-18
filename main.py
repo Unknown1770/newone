@@ -50,6 +50,7 @@ def hello_world():
     gender = request.form.get("gender") 
     dob = request.form.get("dob") 
     nationality = request.form.get("nationality") 
+    domain = request.form.get("domain") 
     
     docref = db.collection('Profile').document()
     data1 = {
