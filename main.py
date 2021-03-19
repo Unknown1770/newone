@@ -63,14 +63,15 @@ def hello_world():
            'nationality': nationality
          }
     docref.set(data1)
-    
+    type = ''
     ldoc_id = docref.id
     if domain == 'mobile' or domain == 'email':
-         type = "communication"
+         type += "communication"
     elif domain == 'facebook' or domain == 'github' or domain == 'linkedin':
-         type = "social"
+         type += "social"
         
     data = {
+           'type': type
            'city': city,
            'email': email,
            'name': name,
